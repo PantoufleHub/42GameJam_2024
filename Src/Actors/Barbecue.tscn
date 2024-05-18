@@ -1,0 +1,258 @@
+[gd_scene load_steps=25 format=3 uid="uid://ccdkev3arec3e"]
+
+[ext_resource type="Texture2D" uid="uid://vq7tm5rvswh8" path="res://Assets/DALLE_2024-04-20_00.52-1.png (2).png" id="1_ixb24"]
+[ext_resource type="Script" path="res://Src/Scripts/Npc1.gd" id="2_xb3ng"]
+[ext_resource type="Script" path="res://Src/Scripts/Npc2.gd" id="3_hkkpt"]
+[ext_resource type="Script" path="res://Src/Scripts/Npc3.gd" id="4_nkdh0"]
+[ext_resource type="Script" path="res://Src/Scripts/Npc4.gd" id="5_3o3wq"]
+[ext_resource type="Script" path="res://Src/Scripts/Npc5.gd" id="6_1wy5h"]
+[ext_resource type="Script" path="res://Src/Scripts/Npc6.gd" id="7_bd8nw"]
+[ext_resource type="Script" path="res://Src/Scripts/UpgradeLabel.gd" id="8_m2685"]
+[ext_resource type="Texture2D" uid="uid://eybo25n0xayo" path="res://Assets/spark.png" id="9_fq8qr"]
+[ext_resource type="AudioStream" uid="uid://dp1q3lnx5f8nx" path="res://Audio/firecrackle.mp3" id="10_mnpl8"]
+[ext_resource type="Script" path="res://Src/Scripts/hitbox_barbuc.gd" id="11_t12g2"]
+[ext_resource type="Script" path="res://Src/Scripts/DangerZone.gd" id="12_sgaf4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vp8bo"]
+radius = 46.0099
+height = 152.043
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8hdkt"]
+radius = 46.081
+height = 135.488
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_beqvs"]
+radius = 39.0704
+height = 102.02
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6wq2d"]
+radius = 41.1575
+height = 109.232
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dbjlw"]
+radius = 47.9939
+height = 122.011
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fay74"]
+radius = 35.45
+height = 137.36
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bm2xs"]
+radius = 172.003
+
+[sub_resource type="LabelSettings" id="LabelSettings_5o1gc"]
+line_spacing = -5.0
+outline_size = 3
+outline_color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+shadow_color = Color(0.0392157, 0.0235294, 0.054902, 1)
+shadow_offset = Vector2(-0.97, 2.7)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lh5x8"]
+lifetime_randomness = 0.1
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(31.95, 36.97, 1)
+gravity = Vector3(0, -8.8, 0)
+scale_min = 0.2
+scale_max = 0.5
+color = Color(0.811765, 0.811765, 0.811765, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_201r4"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(5.1, 4.53, 1)
+emission_shape = 1
+emission_sphere_radius = 13.94
+angular_velocity_min = 32.36
+angular_velocity_max = 105.17
+gravity = Vector3(0, -50, 0)
+scale_min = 1.5
+scale_max = 2.5
+color = Color(0.603922, 0.952941, 0.933333, 0.368627)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2iu3e"]
+radius = 179.279
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5i4rp"]
+
+[node name="BBQ" type="Node2D"]
+light_mask = 16
+visibility_layer = 16
+
+[node name="Sprite" type="Sprite2D" parent="."]
+light_mask = 32
+visibility_layer = 32
+texture = ExtResource("1_ixb24")
+
+[node name="NPC1" type="Area2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+collision_layer = 0
+script = ExtResource("2_xb3ng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC1"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(-266, 27)
+rotation = 0.0151572
+shape = SubResource("CapsuleShape2D_vp8bo")
+
+[node name="LabelPoint" type="Node2D" parent="NPC1"]
+position = Vector2(-201, 15)
+
+[node name="NPC2" type="Area2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+collision_layer = 0
+script = ExtResource("3_hkkpt")
+
+[node name="LabelPoint" type="Node2D" parent="NPC2"]
+position = Vector2(-113, -89)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2"]
+position = Vector2(-175, -176)
+rotation = 2.30638
+shape = SubResource("CapsuleShape2D_8hdkt")
+
+[node name="NPC3" type="Area2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+collision_layer = 0
+script = ExtResource("4_nkdh0")
+
+[node name="LabelPoint" type="Node2D" parent="NPC3"]
+position = Vector2(-1, -137)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(5, -242)
+rotation = 0.0194485
+shape = SubResource("CapsuleShape2D_beqvs")
+
+[node name="NPC4" type="Area2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+collision_layer = 0
+script = ExtResource("5_3o3wq")
+
+[node name="LabelPoint" type="Node2D" parent="NPC4"]
+position = Vector2(101, -89)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC4"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(187, -181)
+rotation = 3.89831
+shape = SubResource("CapsuleShape2D_6wq2d")
+
+[node name="NPC5" type="Area2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+collision_layer = 0
+script = ExtResource("6_1wy5h")
+
+[node name="LabelPoint" type="Node2D" parent="NPC5"]
+position = Vector2(131, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC5"]
+position = Vector2(264, -6)
+rotation = 4.71532
+shape = SubResource("CapsuleShape2D_dbjlw")
+
+[node name="NPC6" type="Area2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+collision_layer = 0
+script = ExtResource("7_bd8nw")
+
+[node name="LabelPoint" type="Node2D" parent="NPC6"]
+position = Vector2(102, 107)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC6"]
+position = Vector2(174, 188)
+rotation = 3.8793
+shape = SubResource("CapsuleShape2D_fay74")
+
+[node name="Hitbox" type="StaticBody2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(-1, 15)
+shape = SubResource("CircleShape2D_bm2xs")
+
+[node name="UpgradeLabel" type="Label" parent="."]
+z_index = 14
+offset_right = 71.0
+offset_bottom = 41.0
+scale = Vector2(1.91, 1.91)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Upgrade!
+[e]"
+label_settings = SubResource("LabelSettings_5o1gc")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_m2685")
+
+[node name="MERGUEZ" type="GPUParticles2D" parent="."]
+position = Vector2(-2, 2)
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_lh5x8")
+texture = ExtResource("9_fq8qr")
+lifetime = 1.3
+speed_scale = 4.15
+
+[node name="FUMEEEE" type="GPUParticles2D" parent="."]
+position = Vector2(0, 1)
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_201r4")
+texture = ExtResource("9_fq8qr")
+lifetime = 2.0
+
+[node name="FireCrackle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_mnpl8")
+volume_db = 24.0
+autoplay = true
+max_distance = 1000.0
+attenuation = 0.574349
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(1, 15)
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+script = ExtResource("11_t12g2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("CircleShape2D_2iu3e")
+
+[node name="DangerZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 65536
+script = ExtResource("12_sgaf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerZone"]
+scale = Vector2(32.78, 32.78)
+shape = SubResource("CircleShape2D_5i4rp")
+
+[connection signal="body_entered" from="NPC1" to="NPC1" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC1" to="NPC1" method="_on_body_exited"]
+[connection signal="body_entered" from="NPC2" to="NPC2" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC2" to="NPC2" method="_on_body_exited"]
+[connection signal="body_entered" from="NPC3" to="NPC3" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC3" to="NPC3" method="_on_body_exited"]
+[connection signal="body_entered" from="NPC4" to="NPC4" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC4" to="NPC4" method="_on_body_exited"]
+[connection signal="body_entered" from="NPC5" to="NPC5" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC5" to="NPC5" method="_on_body_exited"]
+[connection signal="body_entered" from="NPC6" to="NPC6" method="_on_body_entered"]
+[connection signal="body_exited" from="NPC6" to="NPC6" method="_on_body_exited"]
+[connection signal="area_entered" from="DeathZone" to="DeathZone" method="_on_area_entered"]
+[connection signal="area_entered" from="DangerZone" to="DangerZone" method="_on_area_entered"]
+[connection signal="area_exited" from="DangerZone" to="DangerZone" method="_on_area_exited"]

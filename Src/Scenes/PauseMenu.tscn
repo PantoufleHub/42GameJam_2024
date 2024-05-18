@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ocxbwgpa02k"]
+
+[ext_resource type="Script" path="res://Src/Scripts/PauseMenu.gd" id="1_3gk4c"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = 61.0
+offset_right = 63.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3gk4c")
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 845.0
+offset_top = 283.0
+offset_right = 1553.0
+offset_bottom = 539.0
+theme_override_font_sizes/font_size = 181
+text = "Resume"
+
+[node name="MenuButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 961.0
+offset_top = 640.0
+offset_right = 1470.0
+offset_bottom = 896.0
+theme_override_font_sizes/font_size = 181
+text = "Menu
+"
+
+[node name="KillButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1021.0
+offset_top = 1021.0
+offset_right = 1427.0
+offset_bottom = 1154.0
+theme_override_font_sizes/font_size = 91
+text = "Killmeplz
+"

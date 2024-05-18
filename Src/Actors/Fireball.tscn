@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://qgaf43tmo1y3"]
+
+[ext_resource type="Script" path="res://Src/Scripts/Fireball.gd" id="1_njwgj"]
+[ext_resource type="Texture2D" uid="uid://cd480a3uwu264" path="res://Assets/Fireball/fireball_0.png" id="2_kgeet"]
+[ext_resource type="Texture2D" uid="uid://kbymie7m5ff7" path="res://Assets/fire2.png" id="2_ruphc"]
+[ext_resource type="Texture2D" uid="uid://ds48xdqw8eol5" path="res://Assets/Fireball/fireball_1.png" id="3_jfdx8"]
+[ext_resource type="Texture2D" uid="uid://divhfni75o7g2" path="res://Assets/Fireball/fireball_2.png" id="4_f287f"]
+[ext_resource type="Texture2D" uid="uid://doej281tyqo3p" path="res://Assets/Fireball/fireball_3.png" id="5_ybrka"]
+[ext_resource type="AudioStream" uid="uid://muhejfrrngih" path="res://Audio/firewoosh.mp3" id="7_xeqv1"]
+
+[sub_resource type="Gradient" id="Gradient_caotm"]
+colors = PackedColorArray(0.815686, 0, 0, 0.784314, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hojhl"]
+gradient = SubResource("Gradient_caotm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7vnnu"]
+lifetime_randomness = 0.17
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 11.06, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(44.48, 0, 0)
+spread = 6.197
+initial_velocity_min = 149.71
+initial_velocity_max = 194.62
+angular_velocity_min = -218.43
+angular_velocity_max = 17.1
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+color = Color(1, 1, 1, 0.576471)
+color_ramp = SubResource("GradientTexture1D_hojhl")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfv4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kgeet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jfdx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f287f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ybrka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3csiv"]
+radius = 11.0
+
+[node name="Fireball" type="Area2D"]
+z_index = 3
+position = Vector2(245.71, 308)
+rotation = 3.14159
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_njwgj")
+
+[node name="Trail" type="GPUParticles2D" parent="."]
+position = Vector2(10.71, -1)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_7vnnu")
+texture = ExtResource("2_ruphc")
+lifetime = 1.3
+preprocess = 0.1
+local_coords = true
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(6.71001, -9.53674e-07)
+scale = Vector2(2.0645, 1.85)
+sprite_frames = SubResource("SpriteFrames_mfv4p")
+frame_progress = 0.701676
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-1.28999, -0.00012207)
+shape = SubResource("CircleShape2D_3csiv")
+
+[node name="WOOOSH" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_xeqv1")
+volume_db = 4.685
+attenuation = 0.574349
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

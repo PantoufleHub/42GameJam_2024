@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctkfln0m3cfgh"]
+
+[ext_resource type="Script" path="res://Src/Scripts/MenuGameOver.gd" id="1_hwuw1"]
+[ext_resource type="Texture2D" uid="uid://c3ryvqytfcrxo" path="res://Assets/end_screen.png" id="2_hsvjp"]
+[ext_resource type="AudioStream" uid="uid://cl867bfr2cb4h" path="res://Audio/kl-peach-game-over-ii-135684.mp3" id="2_t3jgh"]
+
+[node name="MenuGameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hwuw1")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1280, 720)
+scale = Vector2(1.59204, 1.56863)
+texture = ExtResource("2_hsvjp")
+
+[node name="RetryButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 1072.0
+offset_right = 1544.0
+offset_bottom = 1191.0
+theme_override_colors/icon_normal_color = Color(1, 0.729412, 0.682353, 1)
+theme_override_font_sizes/font_size = 81
+text = "Retry
+"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 708.0
+offset_top = 520.0
+offset_right = 1871.0
+offset_bottom = 645.0
+theme_override_colors/font_shadow_color = Color(0.152941, 0.152941, 0.152941, 1)
+theme_override_font_sizes/font_size = 91
+text = "Score: "
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 704.0
+offset_right = 2119.0
+offset_bottom = 829.0
+theme_override_colors/font_shadow_color = Color(0.0901961, 0.054902, 0.0392157, 1)
+theme_override_font_sizes/font_size = 91
+text = "Time: "
+horizontal_alignment = 1
+
+[node name="OUIN" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_t3jgh")
+volume_db = 5.634
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]

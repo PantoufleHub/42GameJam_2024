@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd8xte2rx1hi2"]
+
+[ext_resource type="Texture2D" uid="uid://bmokwlog82tri" path="res://Assets/sprite_bariiere1.png" id="1_oq7io"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynr2j"]
+
+[node name="Sign1" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_oq7io")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 41)
+shape = SubResource("RectangleShape2D_ynr2j")

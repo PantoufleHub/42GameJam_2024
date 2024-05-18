@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkq43xpn0bbbu"]
+
+[ext_resource type="Texture2D" uid="uid://btekayirlfcdx" path="res://Assets/healthbarUnder.png" id="1_16mkq"]
+[ext_resource type="Script" path="res://Src/Scripts/Label.gd" id="1_wtyal"]
+
+[node name="TimerUI" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(29, 12)
+scale = Vector2(1.37986, 2.65901)
+texture = ExtResource("1_16mkq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -2.0
+offset_right = 62.0
+offset_bottom = 23.0
+text = "00:00.00"
+script = ExtResource("1_wtyal")

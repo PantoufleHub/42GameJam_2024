@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi26bo7k041yx"]
+
+[ext_resource type="PackedScene" uid="uid://dpa6wwwxsi7q3" path="res://Src/GUI/gas_tank_ui.tscn" id="1_5eb16"]
+[ext_resource type="PackedScene" uid="uid://ecxhkqv5kd2s" path="res://Src/GUI/level_progress_bar.tscn" id="2_jo6fh"]
+[ext_resource type="PackedScene" uid="uid://dkq43xpn0bbbu" path="res://Src/GUI/timer_ui.tscn" id="3_kcgsp"]
+[ext_resource type="PackedScene" uid="uid://cwy55jeylduq3" path="res://Src/GUI/warning_sign.tscn" id="4_vhq5o"]
+
+[node name="HUD" type="Node2D"]
+
+[node name="GasTankUI" parent="." instance=ExtResource("1_5eb16")]
+position = Vector2(-49, 1249)
+scale = Vector2(1.61224, 1.42612)
+
+[node name="LevelProgressBar" parent="." instance=ExtResource("2_jo6fh")]
+position = Vector2(5, 3)
+scale = Vector2(6.24465, 6.73871)
+
+[node name="TimerUI" parent="." instance=ExtResource("3_kcgsp")]
+position = Vector2(2313, 9)
+scale = Vector2(3.32, 3.70599)
+
+[node name="WarningSign" parent="." instance=ExtResource("4_vhq5o")]

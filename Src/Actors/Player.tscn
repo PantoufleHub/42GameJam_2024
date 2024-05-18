@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuf2linjho7gy"]
+
+[ext_resource type="Script" path="res://Src/Scripts/Player.gd" id="1_e52wl"]
+[ext_resource type="Texture2D" uid="uid://cgk0glrdf2gux" path="res://Assets/player_sprite-1.png.png" id="2_rpy67"]
+[ext_resource type="AudioStream" uid="uid://cspeda01kxv4e" path="res://Audio/upgrade.mp3" id="3_fctws"]
+[ext_resource type="AudioStream" uid="uid://r102bmcgp3iu" path="res://Audio/flamethrower.mp3" id="4_sw1f5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0ucb"]
+radius = 27.0
+height = 81.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 4
+position = Vector2(600, 300)
+collision_layer = 1025
+collision_mask = 1032
+script = ExtResource("1_e52wl")
+
+[node name="FirePoint" type="Node2D" parent="."]
+position = Vector2(0.1, 54.86)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+texture = ExtResource("2_rpy67")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -8.5)
+shape = SubResource("CapsuleShape2D_y0ucb")
+
+[node name="UPGRADE" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fctws")
+volume_db = 5.683
+
+[node name="BUUURN" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sw1f5")
+volume_db = 1.226

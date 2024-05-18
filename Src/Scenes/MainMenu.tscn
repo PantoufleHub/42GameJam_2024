@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1uxsah2njw0a"]
+
+[ext_resource type="PackedScene" uid="uid://cbbeoi220a5k1" path="res://Src/Scenes/CreditsMenu.tscn" id="1_5wdoh"]
+[ext_resource type="Texture2D" uid="uid://c21fxjgt27k" path="res://Assets/Mainmenu.png" id="1_8akuq"]
+[ext_resource type="Script" path="res://Src/Scripts/MainMenu.gd" id="1_ocgio"]
+[ext_resource type="AudioStream" uid="uid://clvs15ixgcxtc" path="res://Audio/happy.mp3" id="2_khbly"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ocgio")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1280, 720)
+scale = Vector2(1.58025, 1.55508)
+texture = ExtResource("1_8akuq")
+
+[node name="Label" type="Label" parent="Background"]
+offset_left = -55.6874
+offset_top = -204.491
+offset_right = 93.3126
+offset_bottom = -93.4911
+rotation = 0.248188
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "No"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_khbly")
+volume_db = 4.785
+autoplay = true
+
+[node name="StartGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.253
+anchor_bottom = 0.239
+offset_left = 1104.0
+offset_top = 392.0
+offset_right = 832.32
+offset_bottom = 119.84
+flat = true
+
+[node name="OptionsButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1104.0
+offset_top = 488.0
+offset_right = 1480.0
+offset_bottom = 552.0
+flat = true
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1104.0
+offset_top = 576.0
+offset_right = 1480.0
+offset_bottom = 640.0
+flat = true
+
+[node name="Label" type="Label" parent="CreditsButton"]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 18.0
+offset_right = 308.0
+offset_bottom = 102.0
+rotation = -0.0802269
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "(One way)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsMenu" parent="CreditsButton" instance=ExtResource("1_5wdoh")]
+visible = false
+position = Vector2(-1104, -576)
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="StartGameButton" to="StartGameButton" method="_on_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
